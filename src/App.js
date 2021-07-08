@@ -37,7 +37,7 @@ function App() {
           color: getColor(),
           defaultPosition: { x:0, y:0 },
           isComplete: false,
-          isWarrning: false,
+          isWarning: false,
         }        
       ]);
       setTask('');
@@ -48,38 +48,41 @@ function App() {
   };
   // Удаление task
   const onClickRemoveTask = (id) => {
-    setTasks( tasks.filter((task) => task.id !== id) );
+    setTasks( tasks.filter((task) => task.id !== id) )
   };
   // Отметить task как "важная" 
   const onClickWarningTask = (id) => {
-    const createWarningTasks = tasks.map((task) => (
-      (task.id === id) 
-      ? (task.isWarrning = !task.isWarrning) 
-      : task
-    ))
-    setTasks(createWarningTasks);
+    const createWarningTasks = tasks.map((task) => {
+      if(task.id === id) {
+        task.isWarning = !task.isWarning 
+      }
+      return task
+    })
+    setTasks(createWarningTasks)
   };
   // Отметить task как "Выполнено" 
   const onClickCompleteTask = (id) => {
-    const createCompleteTasks = tasks.map((task) => (
-      (task.id === id) 
-      ? (task.isComplete = !task.isComplete) 
-      : task
-    ))
-    setTasks(createCompleteTasks);
+    const createCompleteTasks = tasks.map((task) => {
+      if(task.id === id) {
+        task.isComplete = !task.isComplete
+      }
+      return task
+    })
+    setTasks(createCompleteTasks)
   };
   // Запоминание позиции каждой task при перемещении
   const updatePosition = (data, id) => {
-    const createUpdatePosition = tasks.map((task) => (
-      (task.id === id) 
-      ? (task.defaultPosition = { x:data.x, y:data.y }) 
-      : task
-    ))
-    setTasks(createUpdatePosition);
+    const createUpdatePosition = tasks.map((task) => {
+      if(task.id === id) {
+        task.defaultPosition = { x:data.x, y:data.y }
+      }
+      return task
+    })
+    setTasks(createUpdatePosition)
   };
   // Нажатием на клавишу 'Enter' добавляется новая task
   const keyPressOnInput = (e) => {
-    e.key === 'Enter' && setTaskToState();
+    e.key === 'Enter' && setTaskToState()
   };
   
   return (
@@ -112,7 +115,7 @@ function App() {
                     <MdDone />
                   </button>
                   <button
-                    className={!task.isWarrning 
+                    className={!task.isWarning 
                       ? "App__btn-warning" 
                       : "warning-btn--active"}
                     onClick={() => onClickWarningTask(task.id)}
