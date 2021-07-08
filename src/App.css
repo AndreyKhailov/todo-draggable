@@ -1,0 +1,166 @@
+.App {
+    background-color: #222222;
+}
+
+.App__tasks {
+    display: inline-block;
+    width: 100vw;
+    position: absolute;
+    z-index: 100;
+}
+
+.App__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.App__header:hover {
+    box-shadow: 0px 0px 7px #dfe1e5;
+}
+
+.App__input {
+    width:  26vw;
+    height: 40px;
+    border: 1px solid #dfe1e5;
+    border-bottom-left-radius: 22px;
+    border-top-left-radius: 22px;
+    background-color: #222222;
+    color: #fff;
+    margin-right: 1px;
+    padding-left: 16px;
+    outline-style: none;
+    font-size: 16px;
+    transition: 0.5s;
+    z-index: 100;
+}
+
+.App__input:hover {
+    box-shadow: 0px 0px 7px #dfe1e5;
+}
+
+.App__btn-set {
+    height: 44px;
+    font-size: 16px;
+    padding-right: 20px;
+    padding-left: 10px;
+    border: 1px solid #dfe1e5;
+    border-bottom-right-radius: 22px;
+    border-top-right-radius: 22px;
+    background-color: #dfe1e5;
+    transition: all 0.3s;
+    cursor: pointer;
+    transition: 0.5s;
+    z-index: 100;
+}
+
+.App__btn-set:hover {
+    color: #dfe1e5;
+    background-color: #057209;
+    border: 1px solid #057209;
+    box-shadow: 1px 0px 5px #057209;
+}
+
+.App__task-drag {
+    display: flex;
+    align-items: center;
+    cursor: grab;
+    max-width: min-content;
+    margin: 5px;
+    animation: appearanceTask 1s ease-in-out;
+}
+
+.App__task-drag:active {
+    cursor: grabbing;
+}
+
+.App__task-title {
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px #000;
+}
+
+.App__task-text {
+    min-width: 50px;
+    font-size: 18px;
+    color: #fff;
+    text-shadow: 0px 1px 5px #222;
+}
+
+.App__btn-group {
+    display: grid;
+    padding: 0 2px;
+}
+
+.App__btn-complete,
+.App__btn-warning,
+.App__btn-remove {
+    display: grid;
+    place-items: center;
+    margin: 1px 0px;
+    width: 26px;
+    height: 18px;
+    background-color: transparent;
+    border: none;
+    transition: 0.3s;
+    color: #fff;
+}
+
+.App__btn-complete:hover,
+.App__btn-warning:hover,
+.App__btn-remove:hover {
+    background-color: #fff;
+    border-radius: 6px;
+    width: 26px;
+    height: 18px;
+}
+
+.App__btn-complete:hover,
+.complete-btn--active {
+    color: #057209;
+}
+
+.App__btn-warning:hover {
+    color: #ff0000;
+}
+
+.App__btn-remove:hover {
+    color: #fff;
+    background-color: #ff0000;
+}
+
+.warning-btn--active,
+.complete-btn--active {
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 18px;
+    margin: 1px 0;
+    border-radius: 6px;
+    border: none;
+}
+
+.warning-btn--active {
+    background-color:   #FF4F00;
+    color: #fff;
+}
+
+.complete-btn--active {
+    background-color: #00FF00;
+    color: #000;
+}
+
+.complete--active {
+    opacity: 0.5;
+}
+
+@keyframes appearanceTask {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
